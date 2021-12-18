@@ -13,6 +13,7 @@ const client = new MongoClient(uri, {
 
 var dbConnection;
 
+/*
 client.connect(function (err, db) {
     if (err || !db) {
       console.log(err);
@@ -25,6 +26,7 @@ client.connect(function (err, db) {
     console.log("Successfully connected to MongoDB.");
 });
 
+*/
 //hash
 function getHash256(text){
   let hash = crypto.createHash('sha256');
