@@ -4,7 +4,8 @@ var crypto = require('crypto');
 /* MongoDb connection */
 const {MongoClient} = require('mongodb');
 // const uri = "http://localhost:27017";
-const uri = "mongodb://localhost:27017";
+// const uri = "mongodb://localhost:27017";
+const uri = "mongodb+srv://john:john1234@cluster0.upvee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -13,7 +14,7 @@ const client = new MongoClient(uri, {
 
 var dbConnection;
 
-/*
+//*
 client.connect(function (err, db) {
     if (err || !db) {
       console.log(err);
@@ -26,7 +27,7 @@ client.connect(function (err, db) {
     console.log("Successfully connected to MongoDB.");
 });
 
-*/
+//*/
 //hash
 function getHash256(text){
   let hash = crypto.createHash('sha256');
