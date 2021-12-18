@@ -15,7 +15,8 @@ var dbConnection;
 
 client.connect(function (err, db) {
     if (err || !db) {
-      return callback(err);
+      console.log(err);
+      return err;
     }
 
     //getting db connections
