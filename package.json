@@ -1,0 +1,17 @@
+{
+  "name": "nodejs_back_api",
+  "version": "1.0.0",
+  "description": "test api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "express": "^4.17.2",
+    "mongodb": "^4.2.2",
+    "promise": "^8.1.0"
+  }
+}
