@@ -22,7 +22,8 @@ class User {
 }
 
 app.get('/', function(req, res){
-  res.send({'hello': 'accueil', 'hello1': 'accueil'});
+  // res.send({'hello': 'accueil', 'hello1': 'accueil'});
+  res.sendFile('./doc.html', {root: __dirname});
 })
 
 /** test **/
@@ -86,6 +87,21 @@ app.post('/register', function(req, res){
         req.body.sexe, hashedPassword, req.body.dateNaissance);
   modelAdapter.insertUser(tempUser);
   res.send({'post': 'inserter', 'success': '200 OK'});
+})
+
+app.put('/subscription', function(req, res){
+  let firstName = req.body.firstname;
+  let email = req.body.email;
+  let idCard = req.body.idCard;
+  let cvc = req.body.cvc;
+  // let tempUser;
+  // modelAdapter.findLogin({firstName: firstName, email: email}).then(function(err){
+  //   console.log(firstName, email, err);
+  //   tempUser = new User(err[0].firstName, err[0].lastname, err[0].email, err[0].sexe, err[0].password, err[0].dateNaissance);
+  // });
+  modelAdapter.addBankCard({firstName: firstName, email: email}, idCard, cvc).then(function(err){
+    res.send({'error': 'false', 'message': "Votre période d'essai viens d'être activé - 5min"});
+  });
 })
 
 /** fin fonctionnalités **/

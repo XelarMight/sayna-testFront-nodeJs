@@ -64,4 +64,14 @@ function insertUser(userLog){
     dbConnection.collection("users").insert(userLog);
 }
 
-module.exports={getHash256:getHash256, findLogin: findLogin, insertUser: insertUser};
+function addBankCard(users, cardId, cvc) {
+  promise1 = new Promise((resolve, reject) => {
+    dbConnection.collection("users").updateMany(users, { $set: {cvc: cvc, idCard: cardId} }, { upsert: true, multi: true });
+    console.log(cardId, cvc, "ITO ARY EEE");
+    resolve("is done");
+  });
+  return promise1;
+}
+
+module.exports={getHash256:getHash256, findLogin: findLogin, insertUser: insertUser,
+  addBankCard: addBankCard};
